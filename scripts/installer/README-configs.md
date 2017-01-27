@@ -3,3 +3,5 @@ Default configuration values will be read from the `default.config` file (contai
 
 Needs some more work; HOST_DNS_ADDRESS (possibly others) ignored by installer; MAIL_SERVER correct at least.
 
+The email address for the default "dataverseAdmin" account can be changed by editing `scripts/api/data/user-admin.json` (aka - not directly accessable through the installer script, and not API editable).
+
