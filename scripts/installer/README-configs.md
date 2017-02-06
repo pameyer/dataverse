@@ -5,3 +5,5 @@ Needs some more work; HOST_DNS_ADDRESS (possibly others) ignored by installer; M
 
 The email address for the default "dataverseAdmin" account can be changed by editing `scripts/api/data/user-admin.json` (aka - not directly accessable through the installer script, and not API editable).
 
+`./install -admin_email=foo+dvadmin@example.org -y -f > i0.out 2> i0.err`
+
