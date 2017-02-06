@@ -44,10 +44,10 @@ import javax.inject.Named;
 import javax.persistence.NoResultException;
 import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.SolrQuery.SortClause;
-import org.apache.solr.client.solrj.SolrServer;
+import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.SolrServerException;
-import org.apache.solr.client.solrj.impl.HttpSolrServer;
-import org.apache.solr.client.solrj.impl.HttpSolrServer.RemoteSolrException;
+import org.apache.solr.client.solrj.impl.HttpSolrClient;
+//import org.apache.solr.client.solrj.impl.HttpSolrServer.RemoteSolrException;
 import org.apache.solr.client.solrj.response.FacetField;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.client.solrj.response.RangeFacet;
@@ -86,17 +86,17 @@ public class SearchServiceBean {
     SystemConfig systemConfig;
 
     public static final JsfHelper JH = new JsfHelper();
-    private SolrServer solrServer;
+    private SolrClient solrServer;
     
     @PostConstruct
     public void init(){
-        solrServer = new HttpSolrServer("http://" + systemConfig.getSolrHostColonPort() + "/solr");
+        solrServer = new HttpSolrClient("http://" + systemConfig.getSolrHostColonPort() + "/solr");
     }
     
     @PreDestroy
     public void close(){
         if(solrServer != null){
-            solrServer.shutdown();
+            //solrServer.shutdown();
             solrServer = null;
         }
     }
@@ -308,7 +308,7 @@ public class SearchServiceBean {
         QueryResponse queryResponse;
         try {
             queryResponse = solrServer.query(solrQuery);
-        } catch (RemoteSolrException ex) {
+        } /*catch (RemoteSolrException ex) {
             String messageFromSolr = ex.getLocalizedMessage();
             String error = "Search Syntax Error: ";
             String stringToHide = "org.apache.solr.search.SyntaxError: ";
@@ -335,8 +335,12 @@ public class SearchServiceBean {
             exceptionSolrQueryResponse.setTypeFacetCategories(exceptionFacetCategoryList);
             exceptionSolrQueryResponse.setSpellingSuggestionsByToken(emptySpellingSuggestion);
             return exceptionSolrQueryResponse;
-        } catch (SolrServerException ex) {
+        }*/ catch (SolrServerException ex) {
             throw new SearchException("Internal Dataverse Search Engine Error", ex);
+        }
+        catch (java.io.IOException e)
+        {
+            throw new SearchException("Internal Dataverse Search Engine Error", e);
         }
 
         SolrDocumentList docs = queryResponse.getResults();

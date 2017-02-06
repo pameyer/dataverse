@@ -32,10 +32,10 @@ import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import org.apache.solr.client.solrj.SolrQuery;
-import org.apache.solr.client.solrj.SolrServer;
+import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.SolrServerException;
-import org.apache.solr.client.solrj.impl.HttpSolrServer;
-import org.apache.solr.client.solrj.impl.HttpSolrServer.RemoteSolrException;
+import org.apache.solr.client.solrj.impl.HttpSolrClient;
+//import org.apache.solr.client.solrj.impl.HttpSolrServer.RemoteSolrException;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrDocumentList;
@@ -115,12 +115,12 @@ public class OAISetServiceBean implements java.io.Serializable {
        return em.find(OAISet.class,id);
     }   
     
-    private SolrServer solrServer = null;
+    private SolrClient solrServer = null;
     
-    private SolrServer getSolrServer () {
+    private SolrClient getSolrServer () {
         if (solrServer == null) {
         }
-        solrServer = new HttpSolrServer("http://" + systemConfig.getSolrHostColonPort() + "/solr");
+        solrServer = new HttpSolrClient("http://" + systemConfig.getSolrHostColonPort() + "/solr");
         
         return solrServer;
         
@@ -254,7 +254,7 @@ public class OAISetServiceBean implements java.io.Serializable {
         QueryResponse queryResponse = null;
         try {
             queryResponse = getSolrServer().query(solrQuery);
-        } catch (RemoteSolrException ex) {
+        } /*catch (RemoteSolrException ex) {
             String messageFromSolr = ex.getLocalizedMessage();
             String error = "Search Syntax Error: ";
             String stringToHide = "org.apache.solr.search.SyntaxError: ";
@@ -266,8 +266,12 @@ public class OAISetServiceBean implements java.io.Serializable {
             }
             logger.fine(error);
             throw new OaiSetException(error);
-        } catch (SolrServerException ex) {
+        }*/ catch (SolrServerException ex) {
             logger.fine("Internal Dataverse Search Engine Error");
+            throw new OaiSetException("Internal Dataverse Search Engine Error");
+        }
+        catch (java.io.IOException e)
+        {
             throw new OaiSetException("Internal Dataverse Search Engine Error");
         }
         
