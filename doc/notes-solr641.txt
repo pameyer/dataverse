@@ -1,0 +1,9 @@
+first pass at code changes, and ansible for updated solr configs.
+
+currently issues where glassfish is getting 404 on solr endpoints during user login (and likely while running the installer):
+ - /solr/update
+ - /solr/spell
+
+Most likely due to incomplete setup/config of solr 6.4.1.
+
+On hold for the moment.
