@@ -23,7 +23,11 @@ import javax.persistence.EntityManager;
  * @author michael
  */
 public class TestCommandContext implements CommandContext {
-
+	@Override
+	public edu.harvard.iq.dataverse.datacapturemodule.DataCaptureModuleServiceBean dataCaptureModule()
+	{
+		return null; //despite not caring about the tests, I had to put this one in
+	}
 	@Override
 	public DatasetServiceBean datasets() {
 		return null;
