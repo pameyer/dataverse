@@ -33,6 +33,12 @@ public class SettingsServiceBean {
      * So there.
      */
     public enum Key {
+        CloudEnvironmentName,
+        ComputeBaseUrl,
+        DataCaptureModuleUrl,
+        RepositoryStorageAbstractionLayerUrl,
+        UploadMethods,
+        DownloadMethods,
         IdentifierGenerationStyle,
         OAuth2CallbackUrl,
         DefaultAuthProvider,
