@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package edu.harvard.iq.dataverse;
-
+import java.util.Collection;
 /**
  *
  * @author skraffmiller
@@ -197,6 +197,20 @@ public class DatasetField implements Serializable {
     private List<ControlledVocabularyValue> controlledVocabularyValues = new ArrayList<>();
 
     public List<ControlledVocabularyValue> getControlledVocabularyValues() {
+	    Collection<ControlledVocabularyValue> cvs = datasetFieldType.getControlledVocabularyValues();
+	    // PM ugly hack to pre-select a checkbox for controlled vocabulary values when there is only one possible value.
+	    // combined with surgery in citation.tsv, this allows for setting all SBDB datasets to the single provided subject without requiring users to do more work
+	    if ( 1 == cvs.size() )
+	    {
+		    if ( 1 != controlledVocabularyValues.size() )
+		    {
+			    // today I learned that Collection doesn't support get or first...
+			    for ( ControlledVocabularyValue cv : cvs )
+			    {
+				    controlledVocabularyValues.add( cv );
+			    }
+		    }
+	    }
         return controlledVocabularyValues;
     }
 
