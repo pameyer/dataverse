@@ -35,18 +35,19 @@
     <div class="ui-message ui-message-error ui-widget ui-corner-all" aria-live="polite" jsf:rendered="#{!empty dsfv.validationMessage}">
         <span class="ui-message-error-detail">#{dsfv.validationMessage}</span>
     </div>
-
+    <ui:remove>
     <!-- This button / script is for replication data for the title field and is client side only -->
     <ui:fragment rendered="#{dsfv.datasetField.datasetFieldType.name == 'title' and DatasetPage.editMode == 'CREATE' }">
-        <input type="button" id="replicationDataButton" tabindex="#{block.index+1}"
-               class="btn btn-default" value="Add &#34;Replication Data for&#34; to Title"
-               onclick="replicationFor();return false;"/>
+    <input type="button" id="replicationDataButton" tabindex="#{block.index+1}"
+    class="btn btn-default" value="Add &#34;Replication Data for&#34; to Title"
+    onclick="replicationFor();return false;"/>
 
-        <script type="text/javascript">
-            function replicationFor() {
-                $(".datasetfield-title")[0].value = "Replication Data for: " + $(".datasetfield-title")[0].value;
-                $('#replicationDataButton').prop('disabled', true);
-            }
-        </script>
+    <script type="text/javascript">
+	    function replicationFor() {
+		    $(".datasetfield-title")[0].value = "Replication Data for: " + $(".datasetfield-title")[0].value;
+		    $('#replicationDataButton').prop('disabled', true);
+	    }
+    </script>
     </ui:fragment>
+    </ui:remove>
 </div>
