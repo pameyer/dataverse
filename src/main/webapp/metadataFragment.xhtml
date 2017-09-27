@@ -96,7 +96,7 @@
                                 <ui:fragment rendered="#{((editMode == 'METADATA'
                                                          or dsf.datasetFieldType.displayOnCreate or !dsf.isEmpty() or dsf.required or dsf.datasetFieldType.hasRequiredChildren) and dsf.include)
                                                          or (!datasetPage and dsf.include)}">
-                                    <div class="form-group">
+                                    <div class="form-group parent_#{dsf.datasetFieldType.name}">
                                         <label for="metadata_#{dsf.datasetFieldType.name}" class="col-sm-3 control-label">
                                             <span data-toggle="tooltip" data-placement="auto right" class="tooltiplabel text-info" data-original-title="#{dsf.datasetFieldType.description}">
                                                 #{dsf.datasetFieldType.title}
