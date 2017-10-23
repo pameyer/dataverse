@@ -126,8 +126,13 @@
     </session-config>
     <!-- web fonts -->
     <mime-mapping>
-        <extension>eot</extension>
+	    <extension>eot</extension> <!-- are wildcards allowed here? nope -->
+	    <!-- <extension>eot?#iefix</extension>--> <!-- how about lists? no -->
         <mime-type>application/vnd.ms-fontobject</mime-type>
+    </mime-mapping>
+    <mime-mapping>
+        <extension>eot?#iefix</extension>
+	<mime-type>application/vnd.ms-fontobject</mime-type>
     </mime-mapping>
     <mime-mapping>
         <extension>otf</extension>
@@ -149,6 +154,11 @@
         <extension>svg</extension>
         <mime-type>image/svg+xml</mime-type>
     </mime-mapping>
+    <mime-mapping>
+        <extension>svg#glyphicons_halflingsregular</extension>
+    	<mime-type>image/svg+xml</mime-type>
+    </mime-mapping>
+
     <!-- BEGIN Data Deposit API (SWORD v2) -->
     <!-- See also SwordConfigurationImpl for how deprecation warnings are configured -->
     <context-param>
