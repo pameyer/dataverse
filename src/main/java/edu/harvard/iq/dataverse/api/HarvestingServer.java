@@ -136,8 +136,13 @@ public class HarvestingServer extends AbstractApiBean {
 	    JsonObject json = Json.createReader(rdr).readObject();
 
 	    OAISet set = new OAISet();
-	    // TODO: check that it doesn't exist yet...
-	    // today's fun fact - you can create exact duplicate OAI sets, apparently without error.
+	    // check that it doesn't exist yet...
+            set = oaiSetService.findBySpec(spec); // this assumes "not found" returns null; which a quick read of findBySpec confirms
+	    if ( null != set )
+	    {
+		    // set already exists, fail the create
+		    return error( Response.Status.BAD_REQUEST, "OAI set " + spec + " already exists" );
+	    }
 	    set.setSpec(spec);
 	    String name,desc,defn;
 	    try
