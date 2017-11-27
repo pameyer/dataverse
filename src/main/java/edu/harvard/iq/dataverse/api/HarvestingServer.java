@@ -108,7 +108,7 @@ public class HarvestingServer extends AbstractApiBean {
    
     /**
      * create an OAI set from spec in path and other parameters from POST body (as JSON).
-     * {"name":$set_name, "description":$optional_set_description,"defination":$set_search_query_string}.
+     * {"name":$set_name, "description":$optional_set_description,"definition":$set_search_query_string}.
      */
     @POST
     @Path("{specname}")
@@ -150,11 +150,11 @@ public class HarvestingServer extends AbstractApiBean {
 	    }
 	    try
 	    {
-		    defn = json.getString("defination");
+		    defn = json.getString("definition");
 	    }
 	    catch( NullPointerException npe_defn)
 	    {
-		    throw new JsonParseException("defination unspecified");
+		    throw new JsonParseException("definition unspecified");
 	    }
 	    try
 	    {
