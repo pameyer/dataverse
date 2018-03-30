@@ -229,7 +229,8 @@ public class SearchServiceBean {
         solrQuery.addFacetField(SearchFields.DATAVERSE_CATEGORY);
         solrQuery.addFacetField(SearchFields.METADATA_SOURCE);
         //solrQuery.addFacetField(SearchFields.AFFILIATION);
-        solrQuery.addFacetField("dvAffiliation");
+        //solrQuery.addFacetField("dvAffiliation");
+        solrQuery.addFacetField(SearchFields.DATAVERSE_AFFILIATION);
         solrQuery.addFacetField(SearchFields.PUBLICATION_DATE);
 //        solrQuery.addFacetField(SearchFields.CATEGORY);
 //        solrQuery.addFacetField(SearchFields.FILE_TYPE_MIME);
