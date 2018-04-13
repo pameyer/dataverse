@@ -610,7 +610,7 @@
             <p:commandButton styleClass="btn btn-default" id="editFileTagsPopupCancelButton" value="#{bundle.cancel}" onclick="PF('editFileTagsPopup').hide();PF('blockFileForm').hide();"  update=":datasetForm:filesTable" actionListener="#{EditDatafilesPage.clearFileMetadataSelectedForTagsPopup()}"/>
         </div>
     </p:dialog>
-    <script type="text/javascript" src="/resources/js/dropins.js" id="dropboxjs" data-app-key="#{EditDatafilesPage.dropBoxKey}"/>
+    <script type="text/javascript" src="#{resource['js/dropins.js']}" id="dropboxjs" data-app-key="#{EditDatafilesPage.dropBoxKey}"/>
     <script type="text/javascript">
         function openDialog() {
             PF('details').show();

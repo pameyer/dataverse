@@ -38,12 +38,12 @@
                             <span class="orcid">
                                 #{bundle['orcid.poweredby']}
                                 <a href="http://orcid.org/" title="#{bundle['orcid.poweredby.title']}" target="_blank">
-					<img src="/resources/images/orcid_16x16.png" alt="#{bundle['orcid.poweredby.imagealt']}" /></a>
+					<img src="#{resource['images/orcid_16x16.png']}" alt="#{bundle['orcid.poweredby.imagealt']}" /></a>
                             </span>
                         </ui:fragment>
                         <span>#{bundle['footer.poweredby']}</span>
                         <a href="http://dataverse.org/" title="#{bundle['footer.dataverseProject']}" target="_blank">
-                                    <img src="/resources/images/dataverseproject_logo.png" alt="#{bundle['footer.dataverseProject']}" /></a>
+				<img src="#{resource['images/dataverseproject_logo.png']}" alt="#{bundle['footer.dataverseProject']}" /></a>
                         <h:outputText class="version" value="v. #{systemConfig.getVersion(true)}" rendered="#{!widgetView}"/>
                     </div>
                 </div>
