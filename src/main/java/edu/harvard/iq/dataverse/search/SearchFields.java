@@ -90,7 +90,7 @@ public class SearchFields {
     public static final String PERSISTENT_URL = "persistentUrl";
     public static final String UNF = "unf";
     public static final String DATAVERSE_NAME = "dvName";
-    public static final String DATAVERSE_AFFILIATION = "dvAffiliation";
+    public static final String DATAVERSE_AFFILIATION = "dvAffiliation_ss";
     public static final String DATAVERSE_DESCRIPTION = "dvDescription";
     public static final String DATAVERSE_CATEGORY = "dvCategory";
     /**
