@@ -468,8 +468,8 @@
                     </div>
                     <!-- END Header / Button Panel -->
 		    <!-- View/Tabs infoMode -->
-		    <div id='external-report' jsf:rendered="#{empty DatasetPage.editMode}">
-			    <span>Live Analysis: <a href='http://localhost:8000/dataset/16' target='blank' rel='noopener'><img src='http://localhost:8000/cartoon/16'/></a></span>
+		    <div id='external-report' class='row panel panel-default' jsf:rendered="#{empty DatasetPage.editMode}">
+			    <span><span class='control-label'>Live Analysis</span> <a style='float:right' href='http://localhost:8000/dataset/16' target='blank' rel='noopener'><img src='http://localhost:8000/cartoon/16' alt='live analysis page for dataset 16'/></a></span>
 		    </div>
                     <!-- Tabs -->
                     <div id="contentTabs" jsf:rendered="#{DatasetPage.editMode != 'INFO'}">
