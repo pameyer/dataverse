@@ -467,7 +467,10 @@
                         </p:commandButton>
                     </div>
                     <!-- END Header / Button Panel -->
-                    <!-- View/Tabs infoMode -->
+		    <!-- View/Tabs infoMode -->
+		    <div id='external-report' jsf:rendered="#{empty DatasetPage.editMode}">
+			    reprocessing iframe / cartoon goes here (only when not editing)
+		    </div>
                     <!-- Tabs -->
                     <div id="contentTabs" jsf:rendered="#{DatasetPage.editMode != 'INFO'}">
 
