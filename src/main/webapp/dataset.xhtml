@@ -500,7 +500,15 @@
                         </p:commandButton>
                     </div>
                     <!-- END Header / Button Panel -->
-                    <!-- View/Tabs infoMode -->
+		    <!-- View/Tabs infoMode -->
+		    <div id='external-report' class='row panel panel-default sbdb-live-analysis' jsf:rendered="#{empty DatasetPage.editMode}">
+			    <span>
+				    <span class='control-label'>Live Analysis</span> 
+				    <h:outputText id="debug1" value="#{DatasetPage.globalId}"/><a style='float:right' href='http://localhost:8000/dataset/16' target='blank' rel='noopener'><img src='http://localhost:8000/cartoon/16' alt='live analysis page for dataset 16'/></a>
+			    </span>
+			    <iframe id='debug-iframe' src='http://localhost:8000/dataset/16'>
+			    </iframe>
+		    </div>
                     <!-- Tabs -->
                     <div id="contentTabs" jsf:rendered="#{DatasetPage.editMode != 'INFO'}">
 
