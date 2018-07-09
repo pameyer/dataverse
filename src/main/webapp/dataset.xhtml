@@ -503,6 +503,7 @@
 		    <!-- View/Tabs infoMode -->
 		    <div id='external-report' class='row panel panel-default' jsf:rendered="#{empty DatasetPage.editMode}">
 			    <iframe src="http://localhost:8000/embed?pid=#{DatasetPage.globalId}" width="600">
+				    <!-- <iframe src='#{bundle.external_report_url}?pid=#{DatasetPage.globalId}' width="600"> --> <!-- not sure about how it'll fail here (looks like badly) -->
 			    </iframe>
 		    </div>
                     <!-- Tabs -->
