@@ -7,4 +7,4 @@ if [ -z "$dvurl" ]; then
 fi
 
 # Please note the "dataverse.test.baseurl" is set to run for "all-in-one" Docker environment.
-mvn test -Dtest=DataversesIT,DatasetsIT,SwordIT,AdminIT,BuiltinUsersIT,UsersIT,UtilIT,ConfirmEmailIT,FileMetadataIT,FilesIT,SearchIT,InReviewWorkflowIT,HarvestingServerIT -Ddataverse.test.baseurl=$dvurl
+mvn test -Dtest=DataversesIT,DatasetsIT,SwordIT,AdminIT,BuiltinUsersIT,UsersIT,UtilIT,ConfirmEmailIT,FileMetadataIT,FilesIT,SearchIT,InReviewWorkflowIT,HarvestingServerIT,BrowserIT -Ddataverse.test.baseurl=$dvurl
