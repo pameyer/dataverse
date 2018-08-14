@@ -1,0 +1,52 @@
+pipeline
+{
+	environment
+	{
+		DV_VERSION="4.9.2"
+		WARFILE="dataverse-${DV_VERSION}.war"
+	}
+	agent none
+	stages
+	{
+		stage('repository checkout')
+		{
+			agent any
+			steps
+			{
+				checkout scm
+			}
+		}
+		stage('build war')
+		{
+			agent any /*TODO - better detail for a maven builder agent*/
+			steps
+			{
+				sh 'mvn package' /*runs integration tests too*/
+				stash name: 'war', includes: "target/${env.WARFILE}"
+				archiveArtifacts artifacts: "target/${env.WARFILE}"
+
+			}
+			post
+			{
+				always
+				{
+					junit 'target/surefire-reports/*.xml'
+				}
+			}
+		}
+		stage('build installer')
+		{
+			agent any
+			steps
+			{
+				unstash 'war'
+				sh 'cd scripts/installer; make'
+				stash name: 'installer', includes: 'scripts/installer/dvinstall.zip'
+				archiveArtifacts artifacts: "scripts/installer/dvinstall.zip"
+			}
+		}
+		/*TODO - deploy for integration tests */
+		/*TODO - run integration tests */
+		/*TODO - deploy / run normal installer */
+	}
+}
