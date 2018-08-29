@@ -28,6 +28,9 @@
 				    </h:outputFormat>
 				    </p>
 				    <p>
+				    For more details about what information was requested, please see the <a href="#{systemConfig.guidesBaseUrl}/#{systemConfig.guidesVersion}/user/account.html#orcid-log-in">User Guide</a>.
+				    </p>
+				    <p>
 				    <h:outputText value="#{OAuth2Page.error.message}"/>
 				    </p>
                     <h:outputFormat value="#{bundle['error.support.message']}" escape="false">
@@ -39,7 +42,8 @@
                                     <f:setPropertyActionListener target="#{sendFeedbackDialog.userEmail}" value=""/>
                                 </p:commandLink>                                
                             </o:param>
-                        </h:outputFormat>
+			    </h:outputFormat>
+			    </p>
                 </div>
 
                 <ui:remove><p>Http Return Code: <code>#{OAuth2Page.error.httpReturnCode}</code></p>

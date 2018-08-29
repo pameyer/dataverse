@@ -502,7 +502,10 @@
                         </p:commandButton>
                     </div>
                     <!-- END Header / Button Panel -->
-                    <!-- View/Tabs infoMode -->
+		    <!-- View/Tabs infoMode -->
+		    <div id='external-report' class='row panel panel-default' jsf:rendered="#{empty DatasetPage.editMode and bundle.containsKey('external_report_url')}">
+			<iframe name="reprocessing-report" src="#{bundle.external_report_url}?pid=${DatasetPage.globalId}" width="620" height="150" style="display:none; border:0;" onload="this.style.display='block'"></iframe>
+		    </div>
                     <!-- Tabs -->
                     <div id="contentTabs" jsf:rendered="#{DatasetPage.editMode != 'INFO'}">
 

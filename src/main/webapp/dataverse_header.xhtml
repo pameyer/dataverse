@@ -27,7 +27,7 @@
                             <span class="navbar-brand" tabindex="1"><i id="icon-dataverse" class="icon-dataverse"></i> #{bundle.dataverse}</span>
                         </ui:fragment>
                         <h:graphicImage rendered="#{!empty settingsWrapper.get(':LogoCustomizationFile')}"
-                            url="#{settingsWrapper.get(':LogoCustomizationFile')}" styleClass="navbar-brand custom-logo"/>
+			url="#{settingsWrapper.get(':LogoCustomizationFile')}" styleClass="navbar-brand custom-logo" alt="home"/> <!-- link hard-coded to /, alt hard-coded to home-->
                     </a>
                     <h:outputLink value="#" onclick="PF('statusInfo').show()" rendered="#{!empty settingsWrapper.get(':StatusMessageText')}">
                         <span class="label label-default status">#{!empty settingsWrapper.get(':StatusMessageHeader') ? settingsWrapper.get(':StatusMessageHeader') : bundle['header.status.header']}</span>
