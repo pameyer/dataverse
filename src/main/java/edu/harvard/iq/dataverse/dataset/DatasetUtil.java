@@ -64,9 +64,9 @@ public class DatasetUtil {
 
             InputStream in = null;
             try {
-                if (dataAccess.getAuxFileAsInputStream(datasetLogoThumbnail + thumb48addedByImageThumbConverter) != null) {
+                //if (dataAccess.getAuxFileAsInputStream(datasetLogoThumbnail + thumb48addedByImageThumbConverter) != null) {
                     in = dataAccess.getAuxFileAsInputStream(datasetLogoThumbnail + thumb48addedByImageThumbConverter);
-                }
+                //}
             } catch (Exception ioex) {
             }
 
