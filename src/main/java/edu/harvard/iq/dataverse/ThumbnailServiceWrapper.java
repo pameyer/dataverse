@@ -221,9 +221,7 @@ public class ThumbnailServiceWrapper implements java.io.Serializable  {
         // an auxilary file on the dataset level: 
         // (don't bother checking if it exists; just try to open the input stream)
         try {
-            //if (dataAccess.getAuxFileAsInputStream(datasetLogoThumbnail + thumb48addedByImageThumbConverter) != null) {
                 in = dataAccess.getAuxFileAsInputStream(datasetLogoThumbnail + thumb48addedByImageThumbConverter);
-            //}
         } catch (Exception ioex) {
               //ignore
         }
