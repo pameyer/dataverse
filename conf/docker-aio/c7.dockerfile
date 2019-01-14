@@ -71,6 +71,12 @@ ENV doi_username=${doi_username}
 ENV doi_password=${doi_password}
 COPY configure_doi.bash /opt/dv
 
+RUN adduser -r solr ; adduser -r glassfish
+#RUN chown -R solr:solr /opt/solr-7.3.1/server/solr/collection1/data /opt/solr-7.3.1/server/logs
+#RUN mkdir -p /opt/solr-7.3.1/server/logs /opt/solr-7.3.1/server/solr/collection1/data ; chown -R solr:solr /opt/solr-7.3.1/server/solr/collection1/data /opt/solr-7.3.1/server/logs
+RUN mkdir -p /opt/solr-7.3.1/server/logs ; chown -R solr:solr /opt/solr-7.3.1/server/solr /opt/solr-7.3.1/server/logs
+RUN chown -R root:root /opt/glassfish4 ; chown -R glassfish:glassfish /usr/local/glassfish4/glassfish/domains/domain1/
+
 # healthcheck for glassfish only (assumes modified domain.xml); 
 #  does not check dataverse application status.
 HEALTHCHECK CMD curl --fail http://localhost:4848/monitoring/domain/server.json || exit 1
